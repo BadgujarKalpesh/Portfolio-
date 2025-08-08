@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kalpesh Badgujar — Portfolio</title>
+    <link rel="icon" href="data:,">
+    <style>
+        :root {
+            --bg1: #071024;
+            --bg2: #0f172a;
+            --accent: #10b981;
+            --accent2: #06b6d4;
+            --muted: #9ca3af;
+            --text-primary: #e6eef7;
+            --text-secondary: #eaf5ef;
+            --card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            --card-border: rgba(255, 255, 255, 0.06);
+            --glass: rgba(255, 255, 255, 0.03);
+            --nav-bg: linear-gradient(180deg, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.35));
+            --shadow-color: rgba(2, 6, 23, 0.6);
+            --shadow-hover-color: rgba(2, 6, 23, 0.75);
+        }
+
+        body.light-theme {
+            --bg1: #f0f9ff;
+            --bg2: #e0f2fe;
+            --accent: #0d9488;
+            --accent2: #0891b2;
+            --muted: #475569;
+            --text-primary: #1e293b;
+            --text-secondary: #0f172a;
+            --card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
+            --card-border: rgba(0, 0, 0, 0.08);
+            --glass: rgba(0, 0, 0, 0.02);
+            --nav-bg: linear-gradient(180deg, rgba(224, 242, 254, 0.7), rgba(224, 242, 254, 0.5));
+            --shadow-color: rgba(100, 116, 139, 0.2);
+            --shadow-hover-color: rgba(100, 116, 139, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            height: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        body {
+            font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg1), var(--bg2));
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        #particles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 26px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            z-index: 40;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: .2px
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            align-items: center
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 6px 8px;
+            border-radius: 8px
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            background: rgba(16, 185, 129, 0.03)
+        }
+
+        body.light-theme .nav-links a:hover {
+            background: rgba(13, 148, 136, 0.05);
+        }
+        
+        /* ...existing code... */
+.theme-toggle {
+    background: var(--glass);
+    border: 1.5px solid var(--card-border);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border 0.2s;
+    box-shadow: 0 2px 8px rgba(16,185,129,0.08);
+}
+
+.theme-toggle:hover {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-color: transparent;
+}
+
+.theme-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--muted);
+    transition: fill 0.2s;
+}
+
+body.light-theme .theme-toggle {
+    background: var(--glass);
+    border: 1.5px solid var(--card-border);
+}
+
+body.light-theme .theme-toggle svg {
+    fill: #0d9488; /* accent color for visibility in light mode */
+}
+
+.theme-toggle:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+/* ...existing code... */
+
+
+        .small-btn {
+            font-size: 13px;
+            padding: 7px 11px;
+            border-radius: 9px;
+            font-weight: 700;
+            text-decoration: none;
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--muted)
+        }
+
+        .small-btn:hover {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            color: #fff;
+            border-color: transparent
+        }
+        
+        body.light-theme .small-btn:hover {
+            color: #fff;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 110px auto 80px;
+            padding: 0 22px;
+        }
+
+        .hero {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0 24px
+        }
+
+        .hero-left {
+            flex: 1;
+            min-width: 260px
+        }
+
+        .hero-right {
+            width: 460px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 8px;
+            line-height: 1.02
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 640px;
+            margin-bottom: 16px;
+            font-size: 15px
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 8px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.12)
+        }
+        
+        body.light-theme .btn-primary {
+             color: #fff;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--accent);
+            font-weight: 700;
+            padding: 9px 14px;
+            border-radius: 9px
+        }
+
+        .btn-ghost:hover {
+            background: rgba(16, 185, 129, 0.06);
+            color: var(--accent);
+        }
+        
+        body.light-theme .btn-ghost:hover {
+            background: rgba(13, 148, 136, 0.08);
+        }
+
+        .hero-stats {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        section {
+            margin-top: 48px
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+            border-bottom: 3px solid rgba(16, 185, 129, 0.08);
+            display: inline-block;
+            padding-bottom: 6px
+        }
+        
+        body.light-theme h2 {
+            border-bottom-color: rgba(13, 148, 136, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px
+        }
+
+        @media (max-width:960px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .hero {
+                flex-direction: column
+            }
+
+            .hero-right {
+                width: 100%;
+                height: 320px
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 18px;
+            transition: transform .28s, box-shadow .28s;
+            box-shadow: 0 8px 30px var(--shadow-color);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 70px var(--shadow-hover-color);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px
+        }
+
+        .project-title h3 {
+            font-size: 16px
+        }
+
+        .desc {
+            color: var(--muted);
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .techs {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .tech {
+            background: var(--glass);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid var(--card-border);
+        }
+
+        .project-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .link {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 800;
+            background: transparent;
+            border: 1px solid var(--card-border);
+        }
+
+        .link:hover {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            color: #fff;
+        }
+        
+        body.light-theme .link:hover {
+            color: #fff;
+        }
+
+        .meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 8px
+        }
+
+        .row {
+            display: flex;
+            gap: 20px
+        }
+
+        .col {
+            flex: 1
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px
+        }
+
+        .skill-badges .tech {
+            padding: 8px 12px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+            margin: 28px 0;
+            border-radius: 2px
+        }
+
+        footer {
+            color: var(--muted);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 20px
+        }
+
+        a {
+            color: inherit
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            background-color: var(--glass);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+        }
+        
+        body.light-theme .contact-form input:focus,
+        body.light-theme .contact-form textarea:focus {
+            box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.2);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn-primary {
+            align-self: flex-start;
+        }
+    </style>
+    <!-- Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Particle canvas -->
+    <canvas id="particles"></canvas>
+
+    <nav>
+        <div class="logo">Kalpesh Badgujar</div>
+        <div class="nav-links">
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+            <a class="small-btn" href="https://drive.google.com/file/d/16akCIje42JHtT08z8kQYRPneTvZ0-5lZ/view?usp=sharing" target="_blank" download>Resume</a> </div>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle light/dark theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zm-11.457 0a.75.75 0 011.06 0l1.59 1.59a.75.75 0 01-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM3.75 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H4.5a.75.75 0 01-.75-.75zM17.894 17.894a.75.75 0 010-1.06l1.59-1.59a.75.75 0 111.06 1.06l-1.59 1.59a.75.75 0 01-1.06 0zm-11.457 0a.75.75 0 01-1.06 0l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06zM12 21.75a.75.75 0 01-.75-.75v-2.25a.75.75 0 011.5 0v2.25a.75.75 0 01-.75.75z"/></svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.645 2.007a.75.75 0 01.75.75v.022c0 .414-.336.75-.75.75a7.5 7.5 0 00-7.5 7.5c0 .414-.336.75-.75.75v.022a.75.75 0 01-.75-.75 9 9 0 019-9z"/></svg>
+            </button>
+    </nav>
+
+    <div class="wrap">
+
+        <!-- HERO -->
+        <header class="hero reveal" role="banner">
+            <div class="hero-left">
+                <h1>Hi — I'm <span style="color:var(--accent)">Kalpesh Badgujar</span></h1>
+                <p>I build scalable web apps, automation tools and developer-centric products. I automate manual
+                    processes, design intuitive interfaces, and integrate AI features that assist engineers and teams.
+                </p>
+
+                <div class="buttons" role="navigation">
+                    <a class="btn btn-primary" href="https://drive.google.com/file/d/16akCIje42JHtT08z8kQYRPneTvZ0-5lZ/view?usp=sharing" target="_blank" download>Download Resume</a>
+                    <a class="btn btn-ghost" href="https://leetcode.com/Kalpeshbadgujar/" target="_blank">LeetCode</a>
+                    <a class="btn btn-ghost" href="https://auth.geeksforgeeks.org/user/kalpeshbadgujar/practice" target="_blank">GeeksforGeeks</a>
+                    <a class="btn btn-ghost" href="https://github.com/BadgujarKalpesh" target="_blank">GitHub</a>
+                </div>
+
+                <div class="hero-stats">
+                    <strong>Quick stats:</strong> 800+ DSA solved · 4 major projects · Open to internships & Full Time Role
+                </div>
+            </div>
+
+            <div class="hero-right" id="threejs-holder" aria-hidden="true">
+                <!-- three.js renderer attaches here -->
+            </div>
+        </header>
+
+        <!-- EDUCATION -->
+        <section id="education" class="reveal" aria-labelledby="education-title">
+            <h2 id="education-title">Education</h2>
+            <div class="grid" style="grid-template-columns:1fr;">
+                <div class="card">
+                    <div class="project-title">
+                        <h3>SVKM’s Institute of Technology, Dhule</h3>
+                        <div class="meta"><span>B.E. — Computer Engineering</span><span>•</span><span>2021 - 2024</span>
+                        </div>
+                    </div>
+                    <p class="desc">Focused on algorithms, systems and full-stack web development. Completed multiple
+                        full-stack projects involving automation and real-time collaboration.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="reveal" aria-labelledby="experience-title">
+            <h2 id="experience-title">Experience</h2>
+            <div class="grid" style="grid-template-columns:1fr;">
+                <div class="card">
+                    <div class="project-title">
+                        <h3>Automaxis — Full-Stack Developer (Intern)</h3>
+                        <div class="meta"><span>Dec 2024 – Jun 2025</span><span>(Hyderabad)</span> </div>
+                    </div>
+                    <p class="desc">Internship focusing on automations, dashboards, browser extensions and API
+                        development for logistics/compliance use-cases.</p>
+
+                    <h4 style="margin-top:12px;color:#eaf5ef">CCSM System</h4>
+                    <ul style="margin-top:8px;color:var(--muted);line-height:1.6">
+                        <li>Developed a comprehensive dashboard using React and TypeScript to visualize shipment
+                            analytics.</li>
+                        <li>Automated PDF generation and upload to eSanchit using Puppeteer, storing IRN/DRN data
+                            securely in the database.</li>
+                        <li>Created scalable APIs using Node.js and Prisma ORM to track field-level changes and history.
+                        </li>
+                        <li>Implemented PDF categorization logic post-OCR and checklist generation in JSON and Excel
+                            formats, streamlining compliance tasks.</li>
+                    </ul>
+
+                    <h4 style="margin-top:14px;color:#eaf5ef">FDP Connect</h4>
+                    <ul style="margin-top:8px;color:var(--muted);line-height:1.6">
+                        <li>Built a Chrome extension for automated Certificate of Origin (COO) form filling, reducing
+                            user effort by 15–20 minutes per submission.</li>
+                        <li>Integrated Razorpay payment gateway for automatic wallet deduction, top-ups, and transaction
+                            history management.</li>
+                        <li>Developed a Super Admin panel using React and Node.js to manage user requests and extension
+                            pricing dynamically.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- SKILLS -->
+        <section id="skills" class="reveal" aria-labelledby="skills-title">
+            <h2 id="skills-title">Skills</h2>
+
+            <div class="row">
+                <div class="col card">
+                    <h3>Languages</h3>
+                    <div class="skill-badges">
+                        <div class="tech">Java</div>
+                        <div class="tech">Python</div>
+                        <div class="tech">JavaScript</div>
+                        <div class="tech">SQL</div>
+                    </div>
+                </div>
+
+                <div class="col card">
+                    <h3>Web Frameworks</h3>
+                    <div class="skill-badges">
+                        <div class="tech">ReactJS</div>
+                        <div class="tech">Node.js</div>
+                        <div class="tech">Express.js</div>
+                        <div class="tech">Prisma ORM</div>
+                        <div class="tech">Tailwind CSS</div>
+                        <div class="tech">HTML5</div>
+                        <div class="tech">CSS3</div>
+                        <div class="tech">Bootstrap</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:16px">
+                <div class="col card">
+                    <h3>Databases</h3>
+                    <div class="skill-badges">
+                        <div class="tech">MongoDB</div>
+                        <div class="tech">MySQL</div>
+                    </div>
+                </div>
+
+                <div class="col card">
+                    <h3>Developer Tools</h3>
+                    <div class="skill-badges">
+                        <div class="tech">Postman</div>
+                        <div class="tech">Git</div>
+                        <div class="tech">VS Code</div>
+                    </div>
+                </div>
+
+                <div class="col card">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-badges">
+                        <div class="tech">AWS S3</div>
+                        <div class="tech">AWS Lambda</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- PROJECTS (full detailed descriptions) -->
+        <section id="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="reveal">Projects</h2>
+
+            <div class="grid">
+
+                <!-- DevCollab AI W -->
+                <article class="card reveal">
+                    <div class="project-title">
+                        <h3>DevCollab AI W</h3>
+                        <div class="meta"><span>Real-time AI Collaboration Tool</span></div>
+                    </div>
+
+                    <p class="desc">
+                        A full-stack collaboration platform (MERN) for teams to create projects, collaborate in
+                        real-time, and get AI-assisted coding help. It combines project management, real-time chat, and
+                        in-browser code execution.
+                    </p>
+
+                    <div class="techs">
+                        <div class="tech">React</div>
+                        <div class="tech">Node.js</div>
+                        <div class="tech">Express.js</div>
+                        <div class="tech">MongoDB</div>
+                        <div class="tech">Socket.io</div>
+                        <div class="tech">Redis</div>
+                        <div class="tech">WebContainer</div>
+                    </div>
+
+                    <div class="project-links">
+                        <a class="link" href="https://soen-main-subp.vercel.app/login" target="_blank">Live</a>
+                        <a class="link" href="https://github.com/BadgujarKalpesh/soen-main" target="_blank">GitHub</a>
+                    </div>
+
+                    <div style="margin-top:12px;color:var(--muted);font-size:14px;line-height:1.55">
+                        <strong>Detailed explanation:</strong>
+                        <ul style="margin-top:8px">
+                            <li><strong>Authentication & Users:</strong> Implemented login/register flows with secure
+                                password storage and JWT-based sessions. Users can create projects and invite
+                                contributors with role-based permissions.</li>
+                            <li><strong>Real-time Collaboration:</strong> Integrated Socket.io for synchronous chat and
+                                presence. Contributors can see live updates, messages, and collaborator activity in
+                                project rooms.</li>
+                            <li><strong>AI Assistance:</strong> Typing <code>@ai</code> in chat triggers a call to a
+                                large-language-model (Gemini) API. The AI answers coding questions (for example,
+                                generating an Express server snippet), provides code suggestions, and helps debug small
+                                issues.</li>
+                            <li><strong>In-browser Execution:</strong> Integrated WebContainer to allow users to view
+                                and run simple AI-generated files (like <code>package.json</code>, <code>app.js</code>)
+                                directly in the browser — no need to leave the site to test generated code.</li>
+                            <li><strong>Stack & Role:</strong> MERN backend for data persistence, Redis for ephemeral
+                                session/room state, Socket.io for real-time comms, and WebContainer for live code
+                                execution. I contributed full-stack features: auth, Sockets, AI integration, and
+                                WebContainer orchestration.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Smart Placement System -->
+                <article class="card reveal">
+                    <div class="project-title">
+                        <h3>Smart Placement System</h3>
+                        <div class="meta"><span>Placement management</span></div>
+                    </div>
+
+                    <p class="desc">A platform to streamline student placements with AI features and dynamic resume
+                        generation for campus recruitment workflows.</p>
+
+                    <div class="techs">
+                        <div class="tech">HTML</div>
+                        <div class="tech">TailwindCSS</div>
+                        <div class="tech">PHP</div>
+                        <div class="tech">JavaScript</div>
+                        <div class="tech">MySQL</div>
+                    </div>
+
+                    <div class="project-links">
+                        <a class="link" href="https://github.com/BadgujarKalpesh/PlaceTech" target="_blank">GitHub</a>
+                    </div>
+
+                    <div style="margin-top:12px;color:var(--muted);font-size:14px;line-height:1.55">
+                        <strong>Detailed explanation:</strong>
+                        <ul style="margin-top:8px">
+                            <li><strong>Student facing:</strong> Dynamic resume builder that helps students create
+                                ATS-friendly resumes and export them as PDF and JSON for programmatic processing.</li>
+                            <li><strong>AI Chatbot:</strong> Integrated a simple AI-driven chatbot to answer student
+                                queries and guide resume creation, improving adoption & quality of submissions.</li>
+                            <li><strong>TPO Dashboard:</strong> Training & Placement Officers can post job descriptions,
+                                shortlist candidates, track placement progress, and download reports for analytics.</li>
+                            <li><strong>Outcome:</strong> Reduced manual resume collection overhead and improved
+                                placement tracking for university staff.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- BusRoute Manager -->
+                <article class="card reveal">
+                    <div class="project-title">
+                        <h3>BusRoute Manager</h3>
+                        <div class="meta"><span>Booking & operations</span></div>
+                    </div>
+
+                    <p class="desc">Complete booking system with separate admin and agent capabilities, approval
+                        workflows and downloadable e-tickets.</p>
+
+                    <div class="techs">
+                        <div class="tech">Node.js</div>
+                        <div class="tech">Express.js</div>
+                        <div class="tech">MySQL</div>
+                        <div class="tech">HTML</div>
+                        <div class="tech">CSS</div>
+                    </div>
+
+                    <div class="project-links">
+                        <a class="link" href="https://github.com/BadgujarKalpesh/BusRoute-Manager" target="_blank">GitHub</a>
+                    </div>
+
+                    <div style="margin-top:12px;color:var(--muted);font-size:14px;line-height:1.55">
+                        <strong>Detailed explanation:</strong>
+                        <ul style="margin-top:8px">
+                            <li><strong>Role-based access:</strong> Admins manage agents, routes, and see booking
+                                analytics; agents accept and confirm bookings.</li>
+                            <li><strong>Booking flow:</strong> Users place booking requests which agents or admins
+                                approve; approved bookings generate downloadable PDF/e-tickets.</li>
+                            <li><strong>Operational features:</strong> Booking history, pending approvals, route
+                                creation and simple analytics for route performance.</li>
+                            <li><strong>Role:</strong> Implemented backend APIs, PDF generation for tickets, and
+                                front-end for admin/agent workflows.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- E-commerce Website -->
+                <article class="card reveal">
+                    <div class="project-title">
+                        <h3>E-commerce Website</h3>
+                        <div class="meta"><span>Online store</span></div>
+                    </div>
+
+                    <p class="desc">React-powered e-commerce platform with persistent sessions, payments and admin
+                        inventory management.</p>
+
+                    <div class="techs">
+                        <div class="tech">React.js</div>
+                        <div class="tech">Redux</div>
+                        <div class="tech">Tailwind</div>
+                        <div class="tech">Firebase</div>
+                        <div class="tech">Razorpay</div>
+                    </div>
+
+                    <div class="project-links">
+                        <a class="link" href="https://github.com/BadgujarKalpesh/E-commerce-Website" target="_blank">GitHub</a>
+                    </div>
+
+                    <div style="margin-top:12px;color:var(--muted);font-size:14px;line-height:1.55">
+                        <strong>Detailed explanation:</strong>
+                        <ul style="margin-top:8px">
+                            <li><strong>User experience:</strong> Product catalog, cart & checkout, responsive UI, and
+                                order history for customers.</li>
+                            <li><strong>Payments:</strong> Razorpay integration for secure transactions and order
+                                verification.</li>
+                            <li><strong>Admin panel:</strong> Inventory & order management with simple analytics for
+                                sales trends.</li>
+                            <li><strong>Role:</strong> Frontend architecture (React + Redux), payments integration and
+                                Firebase backend usage.</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ACHIEVEMENTS -->
+        <section id="achievements" class="reveal">
+            <h2>Achievements</h2>
+            <div class="grid" style="grid-template-columns:1fr;">
+                <div class="card">
+                    <ul style="color:var(--muted);line-height:1.6">
+                        <li>2nd Prize — Codeathon 2023.</li>
+                        <li>800+ DSA problems solved across GeeksforGeeks & LeetCode.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- CONTACT -->
+        <section id="contact" class="reveal">
+            <h2>Contact</h2>
+            <div class="grid" style="grid-template-columns:1fr;">
+                <div class="card">
+                    <p style="color:var(--muted); margin-bottom: 20px;">
+                        Have a question or want to work together? Feel free to reach out.
+                    </p>
+                    <!-- 
+                      IMPORTANT: Replace the action URL with your own from formspree.io 
+                      Go to formspree.io, create a new form, and paste your unique URL here.
+                    -->
+                    <form class="contact-form" action="https://formspree.io/f/mjkopjpn" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>© <span id="year"></span> Kalpesh Badgujar — Built with HTML, CSS & JavaScript</footer>
+    </div>
+
+
+    <script>
+        // set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        /* ---------- Theme Toggle ---------- */
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Function to apply the saved theme
+            function applyTheme(theme) {
+                if (theme === 'light') {
+                    body.classList.add('light-theme');
+                } else {
+                    body.classList.remove('light-theme');
+                }
+            }
+
+            // Check for saved theme in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            }
+
+            // Event listener for the toggle button
+            themeToggle.addEventListener('click', () => {
+                const isLight = body.classList.toggle('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+        })();
+
+        /* ---------- Particle background (canvas) ---------- */
+        (function() {
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            let w = canvas.width = innerWidth;
+            let h = canvas.height = innerHeight;
+            let mouse = {
+                x: w / 2,
+                y: h / 2
+            };
+            const particles = [];
+            const COUNT = Math.round((w * h) / 70000);
+
+            function resize() {
+                w = canvas.width = innerWidth;
+                h = canvas.height = innerHeight;
+            }
+            window.addEventListener('resize', resize);
+
+            for (let i = 0; i < COUNT; i++) {
+                particles.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    r: 1 + Math.random() * 2,
+                    hue: 160 + Math.random() * 80
+                });
+            }
+
+            window.addEventListener('mousemove', e => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            function draw() {
+                ctx.clearRect(0, 0, w, h);
+                // subtle glow at pointer
+                const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, Math.min(w, h) / 3);
+                grad.addColorStop(0, 'rgba(16,185,129,0.25)');
+                grad.addColorStop(1, 'rgba(16,185,129,0)');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, w, h);
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    const dx = mouse.x - p.x,
+                        dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const force = Math.min(80 / (dist + 30), 0.18);
+                    p.vx += dx * 0.0006 * force;
+                    p.vy += dy * 0.0006 * force;
+
+                    p.vx *= 0.995;
+                    p.vy *= 0.995;
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0) p.x = w;
+                    if (p.x > w) p.x = 0;
+                    if (p.y < 0) p.y = h;
+                    if (p.y > h) p.y = 0;
+
+                    ctx.beginPath();
+                    ctx.fillStyle = `hsla(${p.hue},65%,60%,0.95)`;
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // sparse lines
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const a = particles[i],
+                            b = particles[j];
+                        const dx = a.x - b.x,
+                            dy = a.y - b.y;
+                        const d2 = dx * dx + dy * dy;
+                        if (d2 < 6000) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = 'rgba(16,185,129,' + (0.18 - d2 / 6000 * 0.14) + ')';
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(a.x, a.y);
+                            ctx.lineTo(b.x, b.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        /* ---------- Smooth scroll for nav anchors ---------- */
+        (function() {
+            document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = a.getAttribute('href').slice(1);
+                    const el = document.getElementById(id);
+                    if (el) el.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+        })();
+
+        /* ---------- Animate on Scroll (Intersection Observer) ---------- */
+        (function() {
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optional: stop observing after it's visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+        })();
+
+
+        /* ---------- Hero 3D Animation (Three.js) ---------- */
+        (function() {
+            const container = document.getElementById('threejs-holder');
+            if (!container) return;
+
+            let scene, camera, renderer, crystal, pointLight;
+            let mouse = { x: 0, y: 0 };
+
+            function init() {
+                // Scene
+                scene = new THREE.Scene();
+
+                // Camera
+                camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+                camera.position.z = 5;
+
+                // Renderer
+                renderer = new THREE.WebGLRenderer({
+                    alpha: true,
+                    antialias: true
+                });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                container.appendChild(renderer.domElement);
+
+                // Crystal Geometry
+                const geometry = new THREE.IcosahedronGeometry(1.5, 0);
+                const material = new THREE.MeshStandardMaterial({
+                    color: 0x10b981,
+                    emissive: 0x072525,
+                    roughness: 0.2,
+                    metalness: 0.7,
+                    flatShading: true,
+                });
+                crystal = new THREE.Mesh(geometry, material);
+                scene.add(crystal);
+
+                // Lights
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+                scene.add(ambientLight);
+
+                pointLight = new THREE.PointLight(0x06b6d4, 1.5, 100);
+                pointLight.position.set(5, 5, 5);
+                scene.add(pointLight);
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Animate crystal rotation
+                crystal.rotation.x += 0.001;
+                crystal.rotation.y += 0.002;
+
+                // Animate light based on mouse position
+                pointLight.position.x = mouse.x * 5;
+                pointLight.position.y = -mouse.y * 5;
+
+                renderer.render(scene, camera);
+            }
+
+            function onWindowResize() {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
+
+            function onMouseMove(event) {
+                // Normalize mouse position from -1 to 1
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            }
+
+            init();
+            animate();
+
+            window.addEventListener('resize', onWindowResize);
+            window.addEventListener('mousemove', onMouseMove);
+
+        })();
+    </script>
+</body>
+
+</html>
